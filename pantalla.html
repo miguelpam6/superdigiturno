@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+
+    <title>Sistema de Digiturno Pantalla</title>
+    <meta name="description" content="" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/estilospantalla.css" />
+    <link rel="stylesheet" href="assets/css/sweetalert2.min.css"/>
+  </head>
+
+  <body>
+    <div class="content-wrapper">
+        <div class="container-fluid flex-grow-1 container-p-y">
+            <div class="row">
+                <div class="card">
+                  <div class="card-body">
+                    <marquee><h1 class="d-inline-block mb-0">Conmutador (+601) 307 8038 / Comuniquese a la línea de atención 018000119703</h1></marquee>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="table-responsive border border-info card">
+                                <table class="table-bordered border-info" id="tablaTurnos">
+                                  <thead>
+                                    <tr>
+                                        <th class="text-center"><h1 class="fw-bold text-underline tamanoletra">TURNO</h1></th>
+                                        <th class="text-center"><h1 class="fw-bold text-underline tamanoletra">ESTADO</h1></th>
+                                        <th class="text-center"><h1 class="fw-bold text-underline tamanoletra">MODULO</h1></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-6">
+                            <div class="text-center">
+                                <h1 id="anioymes"></h1>
+                                <br>
+                                <h1 id="tiempohora"></h1>
+
+                                <!-- Ingresar un vídeo desde source src="assets/videos/video.mp4" PAM06.-->
+                                <!-- <video style="width:100%; max-width:600px;" controls autoplay loop> -->
+                                <!--    <source src="assets/sonidos/video.mp4" type="video/mp4"> -->
+                                <!--    <source src="assets/videos/video.mp4" type="video/mp4"> -->
+                                <!-- </video>-->
+
+                                <!-- Ingresar un vídeo desde un canal de YOUTUBE PAM06 -->
+                                <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/0mJrBvYsSIM?si=Uw_r22OJxgPcn7lN&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay=1; mute=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+                                <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/eAuHso3WMDU?si=Z78SyzHgx6-yx2Eq&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+                                <!--<iframe width="560" height="315" src="https://www.youtube.com/embed?listType=playlist=Clases Abstractas Métodos Abstractos Proyecto Matrix"></iframe>-->
+                                <!--<iframe id="ytplayer" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com" frameborder="0"/></iframe>-->
+
+                                <!--  CONTENEDOR DESDE UN PLAYLIST YOUTUBE PAM06 -->
+                              <!-- Contenedor del reproductor de YouTube -->
+                              <div id="youtube-player"></div>
+
+                                <!-- Script de YouTube API -->
+                                <script src="https://www.youtube.com/iframe_api"></script>
+
+                                <script>
+                                  // Función de inicialización del reproductor PAM06
+                                  function onYouTubeIframeAPIReady() {
+                                    // Crear el reproductor
+                                    var player = new YT.Player('youtube-player', {
+                                      height: '360',
+                                      width: '640',
+                                      playerVars: {
+                                        listType: 'playlist',
+                                        list: 'PL_dkj51Ronx4cX5CWAJ3W-hoMmBPH-aMm', // Reemplazar con la ID o URL de tu playlist
+                                        // Playlist PAM06 URL - SUPERINTENDENCIA DE VIGILANCIA Y SEGURIDAD PRIVADA
+                                        // https://www.youtube.com/watch?v=6zVNHPzRPgA&list=PL_dkj51Ronx4cX5CWAJ3W-hoMmBPH-aMm
+                                        // se requiere solo 
+                                        // PL_dkj51Ronx4cX5CWAJ3W-hoMmBPH-aMm
+                                        playVideo: 1,
+                                        mute: 1
+                                      },
+                                      events: {
+                                        'onReady': onPlayerReady,
+                                        'onStateChange': onPlayerStateChange
+                                      }, 
+                                    });
+                                  }
+
+                                  // Función llamada cuando el reproductor está listo - PAM06
+                                  function onPlayerReady(event) {
+                                    event.target.playVideo();
+                                  }
+
+                                  // Función llamada cuando cambia el estado del reproductor - PAM06
+                                  function onPlayerStateChange(event) {
+                                    // Puedes agregar lógica adicional según el estado del reproductor (opcional)
+                                  }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- / Content -->
+
+
+    <script src="assets/js/sweetalert2.all.min.js"></script>
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="controllers/pantallaController.js"></script>
+  </body>
+</html>
